@@ -25,7 +25,7 @@ export class HotelsComponent  {
 
   showRooms(index:any){
     if(!this.toggle){
-      this.rooms =  this.hotels[index].rooms;
+      this.rooms =  this.rest.hotels[index].rooms;
       this.toggle = true;
       var div = document.getElementById("toggleId_" + index);
       div.setAttribute("style", "display: block;"); 
