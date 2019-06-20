@@ -1,0 +1,49 @@
+<div class="container roomDetails">
+	<div class="row">
+		<div class="col-md-4">
+			<button type="button" class="btn btn-primary margin-small float-left">King</button>
+			<button type="button" class="btn btn-primary margin-small float-left">DayBed</button>
+		</div>
+
+		<div class="col-md-3">
+			<fa name="user" class="margin-small"></fa>
+			<fa name="user" class="margin-small"></fa>
+			<fa name="user" class="margin-small"></fa>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			{{currentDate | date: 'EEE' }}, {{ currentDate | date:'MMMM'}} {{ day }}
+			<hr>
+			 <span class="highlight"> {{room.price}}</span> USD 
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-7">
+			<hr>
+			<p> <strong> Conditions and Offers </strong>: <br>
+				Meal Plan: Breakfast Included
+			</p>
+
+			<p> <strong> Cancellation Policy: </strong>: <br>
+				<span class="warning"> Penalty of 1 booked night(s) when cancelling after Nov 25, 2006 4:00PM</span>
+			</p>
+		</div>
+
+		<div class="col-5">
+			<hr>
+			<p> Price : {{room.price | currency}} USD</p>
+			<hr>
+			<p> Taxes : {{ (room.price * 0.14) | currency }} USD</p> 
+			<hr>
+			<p> Fees : 0.00 p/nt USD </p> 
+			<hr>
+			<p> Total : {{ (room.price + (room.price * 0.14)) | currency}} </p>
+		</div>
+	</div>
+
+</div>

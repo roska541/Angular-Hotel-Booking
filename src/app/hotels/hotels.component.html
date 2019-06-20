@@ -1,0 +1,75 @@
+<div class="container" *ngFor="let hotel of rest.hotels; index as i; ">
+
+	<div class="row boxing">
+
+	  <div class="col-md-4">
+	  	<img src="{{hotel.upload[0].filename}}" class="img-fluid img-hotel" >
+	  </div>
+
+	  <div class="col-md-4">
+	  	<h3> {{hotel.name}} </h3>
+	  	<div id="rating">
+		  	<star-rating 
+		  		[starType]="'svg'" 
+		  		[rating]="hotel.rating"
+		  		[size]="small"
+		  		[disabled]="true"
+		  	></star-rating>
+	  	</div>
+
+		<p> {{hotel.address}}, {{ hotel.city }}
+			<br>{{hotel.state}}, {{hotel.zip}}, {{hotel.country}}
+		</p>
+
+		<button (click)="showRooms(i)"> 
+			View Rooms / Avilability 
+		</button>
+
+		
+	  </div>
+
+	  <div class="col-md-4">
+	  	<p> Starting At <br>
+		USD <strong> ${{hotel.rooms[0].price}}</strong> <br>
+		per room/night
+
+		</p>
+		<small> *Taxes not included </small>
+
+	  </div>
+
+	</div>
+
+	<div [id]="'toggleId_' + i" style="display: none;" class="rooms">
+
+		<div class="row" *ngFor="let room of rooms; index as j">
+	  		<div class="col-md-3"> <p> {{room.name}} </p> </div>
+			<div class="col-md-1"> <p> {{room.status}} </p> </div>
+			<div class="col-md-2">
+				<p>
+				  <button type="button" class="btn btn-outline-warning highlight" 
+				  (click)="showDetails(i,j)">
+				    Details
+				  </button>
+				</p>
+				
+			</div>
+			<div class="col-md-3"> <p> {{room.price}} USD per Night </p> </div>
+			<div class="col-md-2"> 
+				<app-booking [hotel]="hotel" [room]="room"></app-booking>
+			</div>
+
+			<!-- Room Details --> 
+			<div [id]="'collapseRooms' + j" class="collapseFull" style="display: none;">
+			  <div class="card">
+			    <div class="card-body">
+			      <app-room-detail [room]="room"></app-room-detail>
+			    </div>
+			  </div>
+			</div>
+		</div>	
+
+	</div>
+
+	
+</div>

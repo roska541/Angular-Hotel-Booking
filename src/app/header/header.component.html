@@ -1,0 +1,35 @@
+<div class="container padding">
+	<div class="row">
+
+		<div class="col-md-4 float-left">
+			<p clas="float-left"> Hotel Search </p>
+
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" 
+		      (input)="onSearchChange($event.target.value)"
+		      aria-label="Search">
+
+		</div>
+
+		<div class="col-md-3 float-right">
+
+			<div ngbDropdown class="d-inline-block">
+		      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sort</button>
+		      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+		        <button ngbDropdownItem (click)="sortNameUp()">
+		        	Hotel Name <fa name="chevron-up"></fa> 
+		        </button>
+		        <button ngbDropdownItem (click)="sortNameDown()"> 
+		        	Hotel Name <fa name="chevron-down"></fa> 
+		        </button>
+		        <button ngbDropdownItem (click)="sortPriceLow()">
+		        	Lowest Price <fa name="chevron-down"></fa> 
+		        </button>
+		        <button ngbDropdownItem (click)="sortPriceHigh()"> 
+		        	Higest Price <fa name="chevron-up"></fa>
+		        </button>
+		      </div>
+		    </div>
+
+		</div>
+	</div>
+</div>

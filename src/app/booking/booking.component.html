@@ -1,0 +1,147 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{room.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="bookForm">
+
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label for="dateOfBirth">First Name</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="text" 
+            class="form-control" placeholder="firstName" formControlName="first_name">
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="dateOfBirth">Last Name</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="text" 
+            class="form-control" placeholder="last name" formControlName="last_name">
+          </div>
+        </div>
+
+
+      </div> 
+
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="dateOfBirth">Email</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="email" 
+            class="form-control" placeholder="Email" formControlName="email">
+          </div>
+        </div>
+
+         <div class="form-group col-md-4">
+            <label for="dateOfBirth">Phone Number</label>
+            <div class="input-group">
+              <input id="dateOfBirth" type="number" 
+              class="form-control" placeholder="phone number" formControlName="phone">
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="dateOfBirth">Address</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="text" 
+            class="form-control" placeholder="Address" formControlName="address_line">
+          </div>
+        </div>
+
+         <div class="form-group col-md-4">
+            <label for="dateOfBirth">Address 2</label>
+            <div class="input-group">
+              <input id="dateOfBirth" type="number" 
+              class="form-control" placeholder="Apt St. FL" formControlName="address_line_2">
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label for="dateOfBirth">City</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="text" 
+            class="form-control" placeholder="Address" formControlName="city">
+          </div>
+        </div>
+
+         <div class="form-group col-md-3">
+            <label for="dateOfBirth">State</label>
+            <div class="input-group">
+              <input id="dateOfBirth" type="text" 
+              class="form-control" placeholder="state" formControlName="state">
+            </div>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="dateOfBirth">Zip</label>
+            <div class="input-group">
+              <input id="dateOfBirth" type="number" 
+              class="form-control" placeholder="zip" formControlName="zip">
+            </div>
+          </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label for="dateOfBirth">Credit Card</label>
+          <div class="input-group">
+            <input id="dateOfBirth" type="text" 
+            class="form-control" placeholder="credit card" formControlName="cc_number">
+          </div>
+        </div>
+
+         <div class="form-group col-md-3">
+            <label for="dateOfBirth">Ex Month</label>
+            <div class="input-group">
+              <select class="form-control" placeholder="year" formControlName="cc_exp_month">
+                  <option *ngFor="let month of months" value="month">{{month}}</option>
+              </select>
+              </div>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="dateOfBirth">Year</label>
+            <div class="input-group">
+              <select class="form-control" placeholder="year" formControlName="cc_exp_year">
+                  <option *ngFor="let year of years" value="year">{{year}}</option>
+              </select>
+            </div>
+          </div>
+
+          <input formControlName="hotel_id" value="hotel.id" style='display:none'>
+          <input formControlName="room_id" value="room.id" style='display:none'>
+          <input formControlName="price" value="room.price" style="display: none">
+
+          <p> Price : {{room.price | currency}} USD <br></p>
+          <p> Taxes : {{ (room.price * 0.14) | currency }} USD <br> </p> 
+          <p> Fees : 0.00 p/nt USD <br> </p> 
+          <p> Booking Total : {{ (room.price + (room.price * 0.14)) | currency}} <br> </p>
+          
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(); bookRoom();">Book</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+  Request
+</button>

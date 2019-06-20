@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+hr {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+p{
+	font-size: 11px;
+}
+.boxing{
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #b5b5b5;
+}
+.boxing h3{
+	font-size: 15px;
+}
+.boxing p{
+	font-size: 12px;
+}
+.rooms p{
+	font-size: 12px;
+}
+.roomDetails p{
+	font-size: 10px;
+}
+.highlight{
+	color: #ffcc00;
+	font-weight: bold;
+}
+.padding{
+	margin: 15px;
+}
+
+.img-hotel{
+	width: 250px;
+	height: 150px;
+}
+
+.collapseFull{
+	width: 100%;
+}
+
+.margin-small{
+	margin: 3px;
+}
+.warning{
+	color:red;
+	font-weight: bold;
+}
+.modal-dialog{
+	min-width: 800px !important;
+}
